@@ -13,7 +13,7 @@ import unittest
 class TestStructureOperations(unittest.TestCase):
 
     def test_Example_3_2(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_2.csv")
+        nodes,bars = Main_for_Testing.LoadAndComputeReactions("Example_3_2.csv")
         # print(nodes[0].constraint)
         # print(nodes[3].constraint)
         # print(nodes[0].xforce_reaction)
@@ -26,7 +26,7 @@ class TestStructureOperations(unittest.TestCase):
         self.assertAlmostEqual(4, nodes[3].yforce_reaction, decimal_place)
 
     def test_Example_3_3(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_3.csv")
+        nodes,bars = Main_for_Testing.LoadAndComputeReactions("Example_3_3.csv")
         # print(nodes[0].constraint)
         # print(nodes[4].constraint)
         # print(nodes[0].xforce_reaction)

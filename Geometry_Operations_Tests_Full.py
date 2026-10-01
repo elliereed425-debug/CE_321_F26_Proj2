@@ -15,7 +15,7 @@ import unittest
 class TestGeometryOperationsPart1(unittest.TestCase):
 
     def test_BarNodeToVector(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_2.csv")
+        nodes,bars = Main_for_Testing.LoadCSV("Example_3_2.csv")
         
         vec1 = geom.BarNodeToVector(nodes[0], bars[0])
         vec2 = geom.BarNodeToVector(nodes[6], bars[0])
@@ -30,7 +30,7 @@ class TestGeometryOperationsPart1(unittest.TestCase):
 
         
     def test_FindOtherNode(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_2.csv")
+        nodes,bars = Main_for_Testing.LoadCSV("Example_3_2.csv")
         this_node = nodes[0]
         other_node = nodes[6]
 
@@ -45,7 +45,7 @@ class TestGeometryOperationsPart1(unittest.TestCase):
         self.assertAlmostEqual(vec_len, geom.VectorTwoNorm(myvec),correct_decimals)
         
     def test_Length(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_2.csv")
+        nodes,bars = Main_for_Testing.LoadCSV("Example_3_2.csv")
         bar_len = geom.Length(bars[0])
         
         vec_len = math.sqrt(2**2+1.1547**2)
@@ -136,7 +136,7 @@ class TestGeometryOperationsPart1(unittest.TestCase):
 class TestGeometryOperationsPart2(unittest.TestCase):
 
     def test_FindSharedNode(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_3.csv")
+        nodes,bars = Main_for_Testing.LoadCSV("Example_3_3.csv")
         
         self.assertEqual(nodes[0], geom.FindSharedNode(bars[0], bars[1]))
         self.assertEqual(nodes[5], geom.FindSharedNode(bars[1], bars[2]))
@@ -144,7 +144,7 @@ class TestGeometryOperationsPart2(unittest.TestCase):
         self.assertEqual(nodes[1], geom.FindSharedNode(bars[2], bars[0]))
             
     def test_BarsToVectors(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_3.csv")
+        nodes,bars = Main_for_Testing.LoadCSV("Example_3_3.csv")
 
         bvec1, bvec2 = geom.BarsToVectors(bars[5], bars[6])
         correct_decimals = 6
@@ -155,7 +155,7 @@ class TestGeometryOperationsPart2(unittest.TestCase):
         self.assertAlmostEqual(1.547, bvec2[1], correct_decimals)
 
     def test_CosineBars(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_3.csv")
+        nodes,bars = Main_for_Testing.LoadCSV("Example_3_3.csv")
 
         # print(geom.CosineBars(bars[5], bars[6]))
 
@@ -167,7 +167,7 @@ class TestGeometryOperationsPart2(unittest.TestCase):
         self.assertAlmostEqual(0.49999756474155765, cosrevbars, correct_decimals)
 
     def test_SineBars(self):
-        nodes,bars = Main_for_Testing.MethodOfJoints("Example_3_3.csv")
+        nodes,bars = Main_for_Testing.LoadCSV("Example_3_3.csv")
 
         # print(geom.SineBars(bars[5], bars[6]))
 
