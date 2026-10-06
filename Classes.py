@@ -30,7 +30,7 @@ class Node:
         self.location = location
         
     def AddConstraint(self, constraint):
-        self.constraint = constraint
+        self.constraint = constraint.strip().lower()
     
     def AddExternalXForce(self, xforce):
         self.xforce_external = xforce
@@ -103,8 +103,8 @@ class Node:
         print('NodeIdx = ', self.idx)
         print('Location = ', self.location)
         print('Constraint = ', self.constraint)
-        print('X Force = ', self.xforce)
-        print('Y Force = ', self.yforce)
+        print('X Force = ', self.xforce_external)
+        print('Y Force = ', self.yforce_external)
         
         if(0 in self.ConstraintType()):
             print('Reaction X = ', self.xforce_reaction)
